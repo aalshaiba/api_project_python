@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'corsheaders'
 ]
 
-UNICODE_JSON = True
 
 CORS_ORIGIN_ALLOW_ALL = True
 
