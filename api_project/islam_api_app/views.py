@@ -1,6 +1,5 @@
 from rest_framework.views import APIView, Response
 from rest_framework import viewsets
-from rest_framework.renderers import BaseRenderer
 # from .adnoc import prices_uae
 # from .exchange_rate import get_currency
 from .prayer_api import get_prayer, get_date
@@ -19,7 +18,7 @@ from .fatwas import FatwaSerializer
 
 
 class PrayerView(APIView):
-    renderer_classes = (BaseRenderer,)
+
 
     def get(self, request):
         return Response(get_prayer())
