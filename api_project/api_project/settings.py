@@ -25,7 +25,7 @@ SECRET_KEY = 'smwo&6*u7&au6aii8x+gj!yg_%8n2!d6xljmkk18!sa1f)x96x'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['api.aalshaiba.com']
+ALLOWED_HOSTS = ['api.aalshaiba.com', 'http://api.aalshaiba.com', 'https://api.aalshaiba.com']
 
 
 # Application definition
