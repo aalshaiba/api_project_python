@@ -6,6 +6,7 @@ from .prayer_api import get_prayer, get_date
 # from .support import get_data
 from .models import Fatwas
 from .fatwas import FatwaSerializer
+from rest_framework.renderers import JSONRenderer
 # class OilView(APIView):
 #
 #     def get(self, request):
@@ -16,6 +17,7 @@ from .fatwas import FatwaSerializer
 
 class PrayerView(APIView):
 
+    renderer_classes = (JSONRenderer,)
     def get(self, request):
         return Response(get_prayer())
 
