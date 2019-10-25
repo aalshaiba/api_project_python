@@ -57,7 +57,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware'
 ]
 
-
+UNICODE_JSON = True
 
 ROOT_URLCONF = 'api_project.urls'
 
