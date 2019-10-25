@@ -58,16 +58,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware'
 ]
 
-REST_FRAMEWORK = {
-    #this bit makes the magic.
-    'DEFAULT_RENDERER_CLASSES': (
-         #UnicodeJSONRenderer has an ensure_ascii = False attribute,
-         #thus it will not escape characters.
-        'rest_framework.renderers.UnicodeJSONRenderer',
-         #You only need to keep this one if you're using the browsable API
-        'rest_framework.renderers.BrowsableAPIRenderer',
-    )
-}
+
 
 ROOT_URLCONF = 'api_project.urls'
 
