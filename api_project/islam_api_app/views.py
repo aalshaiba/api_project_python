@@ -1,10 +1,11 @@
 from rest_framework.views import APIView, Response
-from rest_framework import viewsets
+from rest_framework import viewsets, generics
 # from .adnoc import prices_uae
 # from .exchange_rate import get_currency
 from .prayer_api import get_prayer, get_date
 # from .support import get_data
 from .models import Fatwas
+from rest_framework import filters
 from .fatwas import FatwaSerializer
 
 
@@ -42,6 +43,8 @@ class HijriView(APIView):
 #         return Response(get_currency())
 
 
-class FatwasView(viewsets.ModelViewSet):
+class FatwasView(generics.ListCreateAPIView):
     queryset = Fatwas.objects.all()
     serializer_class = FatwaSerializer
+    filter_backends = (filters.SearchFilter,)
+    search_fields = ['title']

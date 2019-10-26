@@ -23,7 +23,7 @@ def get_prayer():
     url = 'http://m.awqaf.ae/prayertimes.aspx'
     response = requests.get(url)
 
-    soup = BeautifulSoup(response.text, 'lxml')
+    soup = BeautifulSoup(response.text, 'html.parser')
 
     englishnames = ['Al Fajr', 'Al Shurooq', 'Al Dhuhr', 'Al Asr', 'Al Maghreb', 'Al Esha']
     arabicnames = ['الفجر', 'الشروق', 'الظهر', 'العصر', 'المغرب', 'العشاء']
