@@ -29,7 +29,7 @@ def get_prayer():
     uu = ['الفجر', 'الشروق', 'الظهر', 'العصر', 'المغرب', 'العشاء']
     arabicnames = []
     for u in uu:
-        encoded = u.encode()
+        encoded = u.encode('uft-8')
         arabicnames.append(encoded)
 
     prayers = []
