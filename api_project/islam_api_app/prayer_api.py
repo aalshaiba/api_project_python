@@ -28,7 +28,8 @@ def get_prayer():
     nn = ['الفجر', 'الشروق', 'الظهر', 'العصر', 'المغرب', 'العشاء']
     arabicnames = []
     for n in nn:
-        n = n.encode(encoding='UTF-8')
+        n = n.encode(encoding='UTF-8', errors='strict')
+        n = n.decode('utf-8')
         arabicnames.append(n)
     prayers = []
     ul = soup.find('ul', {'data-role': 'listview'})
