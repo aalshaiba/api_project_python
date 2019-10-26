@@ -40,7 +40,7 @@ def get_prayer():
             prayer.time = prayer.time + timedelta(hours=12)
 
     for x in prayers:
-        x.time = x.time.strftime('%H:%M')
+        x.time = x.time.strftime('%I:%M %p')
 
     serializer = PrayerSerializer(prayers, many=True)
 
