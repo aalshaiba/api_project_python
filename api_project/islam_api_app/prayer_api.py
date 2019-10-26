@@ -30,7 +30,7 @@ def get_prayer():
     arabicnames = []
     for u in uu:
         encoded = u.encode()
-        arabicnames.append(u+encoded)
+        arabicnames.append(encoded)
 
     prayers = []
     ul = soup.find('ul', {'data-role': 'listview'})
