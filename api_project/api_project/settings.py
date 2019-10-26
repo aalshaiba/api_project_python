@@ -31,7 +31,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 
-UNICODE_JSON = False
+UNICODE_JSON = True
 
 
 INSTALLED_APPS = [
