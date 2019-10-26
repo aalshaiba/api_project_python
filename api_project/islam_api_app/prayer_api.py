@@ -3,6 +3,7 @@ import requests
 import re
 from datetime import datetime, timedelta
 from rest_framework import serializers
+import base64
 
 
 class Prayer:
@@ -25,7 +26,11 @@ def get_prayer():
     soup = BeautifulSoup(response.text, 'lxml')
 
     englishnames = ['Al Fajr', 'Al Shurooq', 'Al Dhuhr', 'Al Asr', 'Al Maghreb', 'Al Esha']
-    arabicnames = ['الفجر', 'الشروق', 'الظهر', 'العصر', 'المغرب', 'العشاء']
+    nn = ['الفجر', 'الشروق', 'الظهر', 'العصر', 'المغرب', 'العشاء']
+    arabicnames = []
+    for n in nn:
+        n = base64.b64encode(n.encode('utf-8'))
+        arabicnames.append(n)
 
     prayers = []
     ul = soup.find('ul', {'data-role': 'listview'})

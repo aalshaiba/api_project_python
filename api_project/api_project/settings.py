@@ -31,7 +31,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 
-
+UNICODE_JSON = True
 
 
 INSTALLED_APPS = [
@@ -61,7 +61,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware'
 ]
 
-UNICODE_JSON = True
+
 
 ROOT_URLCONF = 'api_project.urls'
 
