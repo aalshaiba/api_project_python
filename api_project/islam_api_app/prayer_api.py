@@ -3,7 +3,7 @@ import requests
 import re
 from datetime import datetime, timedelta
 from rest_framework import serializers
-import base64
+
 
 
 class Prayer:
@@ -29,8 +29,7 @@ def get_prayer():
     nn = ['الفجر', 'الشروق', 'الظهر', 'العصر', 'المغرب', 'العشاء']
     arabicnames = []
     for n in nn:
-        n = base64.b64encode(n.encode('utf-8'))
-        n = base64.b64decode(n)
+        n = n.encode('utf-8')
         arabicnames.append(n)
 
     prayers = []
