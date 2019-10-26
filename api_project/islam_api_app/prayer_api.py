@@ -25,12 +25,8 @@ def get_prayer():
     soup = BeautifulSoup(response.text, 'lxml')
 
     englishnames = ['Al Fajr', 'Al Shurooq', 'Al Dhuhr', 'Al Asr', 'Al Maghreb', 'Al Esha']
-    nn = ['الفجر', 'الشروق', 'الظهر', 'العصر', 'المغرب', 'العشاء']
-    arabicnames = []
-    for n in nn:
-        n = n.encode(encoding='utf-8')
-        n.decode('utf-8')
-        arabicnames.append(n)
+    arabicnames = ['الفجر', 'الشروق', 'الظهر', 'العصر', 'المغرب', 'العشاء']
+
     prayers = []
     ul = soup.find('ul', {'data-role': 'listview'})
 
@@ -38,6 +34,7 @@ def get_prayer():
         t = re.findall('\d+:\d+', item.text)
         tim = datetime.strptime(t[0], '%I:%M')
         p = Prayer(englishname=name1, time=tim, arabicname=name2)
+        p.arabicname = name2.encode('utf-8')
         prayers.append(p)
 
     for index, prayer in enumerate(prayers):
