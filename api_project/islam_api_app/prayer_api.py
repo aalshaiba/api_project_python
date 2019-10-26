@@ -30,6 +30,7 @@ def get_prayer():
     arabicnames = []
     for n in nn:
         n = base64.b64encode(n.encode('utf-8'))
+        n = base64.b64decode(n)
         arabicnames.append(n)
 
     prayers = []
