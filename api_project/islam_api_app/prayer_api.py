@@ -34,7 +34,7 @@ def get_prayer():
         t = re.findall('\d+:\d+', item.text)
         tim = datetime.strptime(t[0], '%I:%M')
         p = Prayer(englishname=name1, time=tim, arabicname=name2)
-        p.arabicname = name2.encode('utf-8')
+
         prayers.append(p)
 
     for index, prayer in enumerate(prayers):
