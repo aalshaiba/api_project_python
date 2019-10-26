@@ -29,7 +29,7 @@ def get_prayer():
     nn = ['الفجر', 'الشروق', 'الظهر', 'العصر', 'المغرب', 'العشاء']
     arabicnames = []
     for n in nn:
-        n = n.encode('utf-8')
+        n = n.encode()
         n.decode('utf-8')
         arabicnames.append(n)
 
