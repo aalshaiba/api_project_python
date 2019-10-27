@@ -1,5 +1,5 @@
 from rest_framework.views import APIView, Response
-from rest_framework import viewsets, generics
+from rest_framework import viewsets, generics, renderers
 # from .adnoc import prices_uae
 # from .exchange_rate import get_currency
 from .prayer_api import get_prayer, get_date
@@ -7,6 +7,7 @@ from .prayer_api import get_prayer, get_date
 from .models import Fatwas
 from rest_framework import filters
 from .fatwas import FatwaSerializer
+from django.utils.encoding import smart_unicode
 
 
 # class OilView(APIView):
@@ -15,6 +16,15 @@ from .fatwas import FatwaSerializer
 #         return Response(get_data())
 #
 #
+
+
+class PlainTextRenderer(renderers.BaseRenderer):
+    media_type = 'text/plain'
+    format = 'text'
+    charset = 'iso-8859-6'
+
+    def render(self, data, accepted_media_type=None, renderer_context=None):
+        return data.encode(self.charset)
 
 
 class PrayerView(APIView):

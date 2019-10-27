@@ -5,7 +5,6 @@ from datetime import datetime, timedelta
 from rest_framework import serializers
 
 
-
 class Prayer:
     def __init__(self, englishname, time, arabicname):
         self.englishname = englishname
