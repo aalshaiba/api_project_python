@@ -21,7 +21,7 @@ from django.utils.encoding import smart_unicode
 class PlainTextRenderer(renderers.BaseRenderer):
     media_type = 'text/plain'
     format = 'text'
-    charset = 'iso-8859-6'
+    charset = 'windows-1256'
 
     def render(self, data, accepted_media_type=None, renderer_context=None):
         return data.encode(self.charset)
