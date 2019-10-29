@@ -2,6 +2,9 @@ from django.urls import path, include
 from rest_framework import routers
 from .views import FatwasView, PrayerView, HijriView
 
+router = routers.DefaultRouter()
+router.register('', FatwasView)
+
 urlpatterns = [
     path('api/', include('rest_framework.urls')),
     # path('oil-prices', OilView.as_view()),
@@ -9,5 +12,5 @@ urlpatterns = [
     path('arabic-date', HijriView.as_view()),
     # path('fuel', UAEFuelView.as_view()),
     # path('exchange', CurrencyView.as_view()),
-    path('fatwas', FatwasView.as_view())
+    path('fatwas', include(router.urls))
 ]

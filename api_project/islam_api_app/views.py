@@ -5,10 +5,8 @@ from rest_framework import viewsets, generics, renderers
 from .prayer_api import get_prayer, get_date
 # from .support import get_data
 from .models import Fatwas
-from rest_framework import filters
 from .fatwas import FatwaSerializer
-from django.utils.encoding import smart_unicode
-
+from django_filters import rest_framework as filters
 
 # class OilView(APIView):
 #
@@ -16,15 +14,6 @@ from django.utils.encoding import smart_unicode
 #         return Response(get_data())
 #
 #
-
-
-class PlainTextRenderer(renderers.BaseRenderer):
-    media_type = 'text/plain'
-    format = 'text'
-    charset = 'windows-1256'
-
-    def render(self, data, accepted_media_type=None, renderer_context=None):
-        return data.encode(self.charset)
 
 
 class PrayerView(APIView):
@@ -52,9 +41,15 @@ class HijriView(APIView):
 #     def get(self, request):
 #         return Response(get_currency())
 
+class FatwaFilter(filters.FilterSet):
+    title = filters.CharFilter(lookup_expr='icontains')
+    class Meta:
+        model = Fatwas
+        fields = ('title',)
 
-class FatwasView(generics.ListCreateAPIView):
+
+class FatwasView(viewsets.ModelViewSet):
     queryset = Fatwas.objects.all()
     serializer_class = FatwaSerializer
-    filter_backends = (filters.SearchFilter,)
-    search_fields = ['title']
+    filterset_class = FatwaFilter
+    filter_fields = ('title',)

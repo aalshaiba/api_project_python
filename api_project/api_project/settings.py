@@ -30,7 +30,9 @@ ALLOWED_HOSTS = ['*']
 
 # Application definition
 
-
+REST_FRAMEWORK =  {
+    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',)
+}
 
 
 INSTALLED_APPS = [
@@ -42,7 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'islam_api_app',
-    'corsheaders'
+    'corsheaders',
+    'django_filters'
 ]
 
 
