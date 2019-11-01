@@ -1,6 +1,7 @@
 from django.urls import path, include
 from rest_framework import routers
 from .views import FatwasView, PrayerView, HijriView
+from rest_framework import routers
 
 router = routers.DefaultRouter()
 router.register('', FatwasView)

@@ -3,7 +3,7 @@ from .fatwas import Fatwas
 
 
 class FatwasAdmin(admin.ModelAdmin):
-    list_display = ('title', 'url',)
+    list_display = ('title', 'url', 'muftee')
 
 
 admin.site.register(Fatwas, FatwasAdmin)

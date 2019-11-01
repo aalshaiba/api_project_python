@@ -6,4 +6,4 @@ from .models import Fatwas
 class FatwaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Fatwas
-        fields = ['title', 'url']
+        fields = ['title', 'url', 'muftee']

@@ -42,14 +42,15 @@ class HijriView(APIView):
 #         return Response(get_currency())
 
 class FatwaFilter(filters.FilterSet):
-    title = filters.CharFilter(lookup_expr='icontains')
     class Meta:
         model = Fatwas
-        fields = ('title',)
+        fields = {
+            'title': ['icontains'],
+            'muftee': ['icontains']
+        }
 
 
 class FatwasView(viewsets.ModelViewSet):
     queryset = Fatwas.objects.all()
     serializer_class = FatwaSerializer
     filterset_class = FatwaFilter
-    filter_fields = ('title',)
