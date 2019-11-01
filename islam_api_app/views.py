@@ -17,16 +17,6 @@ from .fatwas import FatwaSerializer
 #
 #
 
-
-class PlainTextRenderer(renderers.BaseRenderer):
-    media_type = 'text/plain'
-    format = 'text'
-    charset = 'windows-1256'
-
-    def render(self, data, accepted_media_type=None, renderer_context=None):
-        return data.encode(self.charset)
-
-
 class PrayerView(APIView):
 
     def get(self, request):
@@ -57,4 +47,4 @@ class FatwasView(generics.ListCreateAPIView):
     queryset = Fatwas.objects.all()
     serializer_class = FatwaSerializer
     filter_backends = (filters.SearchFilter,)
-    search_fields = ['title']
+    search_fields = ['title', 'muftee']
