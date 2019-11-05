@@ -63,8 +63,6 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware'
 ]
 
-
-
 ROOT_URLCONF = 'api_project.urls'
 
 TEMPLATES = [
