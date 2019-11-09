@@ -1,8 +1,8 @@
 from rest_framework.views import APIView, Response
 from rest_framework import viewsets
 from .prayer_api import get_prayer, get_date
-from .models import Fatwas
-from .fatwas import FatwaSerializer
+from .models import Fatwas, Droosuae
+from .fatwas import FatwaSerializer, DroosUAESerializer
 from django.db.models import Q
 
 
@@ -31,5 +31,23 @@ class FatwasView(viewsets.ModelViewSet):
             if muftee:
                 listFatwas = listFatwas.filter(Q(muftee__icontains=muftee))
             return listFatwas
+        else:
+            return []
+
+
+class DroosView(viewsets.ModelViewSet):
+    serializer_class = DroosUAESerializer
+    queryset = Droosuae.objects.all()
+
+    def get_queryset(self):
+        title = self.request.GET.get('title')
+        shaikh = self.request.GET.get('shaikh')
+        droos = Droosuae.objects.all()
+
+        if title:
+            listDroos = droos.filter(Q(title__icontains=title))
+            if shaikh:
+                listDroos = listDroos.filter(Q(shaikh__icontains=shaikh))
+            return listDroos
         else:
             return []
