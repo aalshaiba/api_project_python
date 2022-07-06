@@ -6,7 +6,7 @@ django-cors-headers==2.5.3
 djangorestframework==3.9.3
 gunicorn==19.9.0
 idna==2.8
-lxml==4.3.3
+lxml==4.9.1
 pytz==2019.1
 requests==2.21.0
 soupsieve==1.9.1
